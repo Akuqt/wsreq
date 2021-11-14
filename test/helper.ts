@@ -1,4 +1,5 @@
-import wsreq, { Methods } from "../src";
+import { wsrequest } from "../src";
+import { Methods } from "../src/core";
 import app from "../example/app";
 
 export const httpRequest = async <T = object>(
@@ -9,7 +10,7 @@ export const httpRequest = async <T = object>(
   body?: object
 ) => {
   return new Promise<T>(async (resolve, reject) => {
-    const res = await wsreq(app, path);
+    const res = await wsrequest(app, path);
     const res2 = await res
       .onWithHttp<T>(event, {
         url,
@@ -24,4 +25,4 @@ export const httpRequest = async <T = object>(
   });
 };
 
-export { wsreq, app };
+export { wsrequest, app };

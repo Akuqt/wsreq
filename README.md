@@ -32,11 +32,11 @@ WsReq works with any test framework, here are some examples with jest:
 Response from emit event in the server.
 
 ```js
-const wsreq = require("wsreq");
+const { wsrequest } = require("wsreq");
 const app = require("../your/path");
 
 test("should respond with msg.", async () => {
-  const res_ = await wsreq(app, "/ws/path");
+  const res_ = await wsrequest(app, "/ws/path");
   res_.emit("ping", data);
   const res = await res_.on("pong");
   expect(res).toEqual(data);
@@ -48,7 +48,7 @@ Response from http server emit event.
 ```js
 test("should respond with msg (using http). ", async () => {
   // method: "get" | "post" | "put" | "delete";
-  const res_ = await wsreq(app, path);
+  const res_ = await wsrequest(app, path);
   const res = await res_.onWithHttp("ws-event", {
     url: "/http/server/url",
     method: "post",
@@ -64,7 +64,7 @@ Invalid http server url.
 ```js
 test("should fail with status code 404.", async () => {
   // method: "get" | "post" | "put" | "delete";
-  const res_ = await wsreq(app, path);
+  const res_ = await wsrequest(app, path);
   const res = await res_
     .onWithHttp("ws-event", {
       url: "/invalid/http/server/url",
@@ -84,7 +84,7 @@ Invalid websocket connection or path.
 
 ```js
 test("should fail with invalid ws connection.", async () => {
-  const res = await wsreq(app, "/invalid/ws/path").catch((e: Error) => {
+  const res = await wsrequest(app, "/invalid/ws/path").catch((e: Error) => {
     return {
       msg: e.message,
     };
@@ -97,7 +97,7 @@ Invalid websocket event name.
 
 ```js
 test("should fail with invalid ws event.", async () => {
-  const res_ = await wsreq(app, "/ws/path");
+  const res_ = await wsrequest(app, "/ws/path");
   res_.emit("ping", data);
   const res = await res_.on("no-pong").catch((e: Error) => {
     return {

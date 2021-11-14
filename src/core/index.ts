@@ -7,7 +7,7 @@ export type Methods = "get" | "post" | "put" | "delete";
 interface Options {
   url: string;
   method: Methods;
-  header?: AxiosRequestHeaders;
+  headers?: AxiosRequestHeaders;
   body?: object;
 }
 
@@ -70,7 +70,7 @@ class Bridge {
         await axios("http://localhost:45000" + opts.url, {
           method: opts.method,
           data: opts.body,
-          headers: opts.header,
+          headers: opts.headers,
         }).catch((e: AxiosError) => {
           this.close();
           clearTimeout(time);
@@ -97,7 +97,7 @@ class Bridge {
    * @returns Bridge between on and emit socket methods.
    * @note Be sure to emit before add a event listener.
    */
-  public emit(ev: string, data: any) {
+  public emit(ev: string, data?: any) {
     this.socket.emit(ev, data);
     return new Bridge(this.socket, this.app, this.timeout);
   }
@@ -110,9 +110,9 @@ class Bridge {
  * @param timeout Time to wait for server answer.
  * @param port Port for the http server.
  * @returns Bridge between on and emit socket methods.
- * @note Min timeout is 3000 ms. Beware of test timeouts and Default port is 45000.
+ * @note Min timeout is 3000 ms, so beware of test timeouts. Default port is 45000.
  */
-export const wsreq = (
+export const wsrequest = (
   app: Server,
   path: string,
   timeout: number = 3000,

@@ -1,8 +1,9 @@
 {
   "name": "wsreq",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Websocket request lib for testing.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "cross-env NODE_ENV=development ts-node-dev --respawn src/example",
     "test": "cross-env NODE_ENV=test jest --runInBand",

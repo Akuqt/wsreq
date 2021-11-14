@@ -1,4 +1,4 @@
-import { httpRequest, app, wsreq } from "./helper";
+import { httpRequest, app, wsrequest } from "./helper";
 
 describe("WS GET REQUEST", () => {
   test("should respond with msg.", async () => {
@@ -44,14 +44,5 @@ describe("WS GET REQUEST", () => {
     });
 
     expect(k).toEqual({ msg: "Invalid WS event." });
-  });
-
-  test("should fail with invalid ws connection.", async () => {
-    const res = await wsreq(app, "/api/no-ws").catch((e: Error) => {
-      return {
-        msg: e.message,
-      };
-    });
-    expect(res).toEqual({ msg: "Invalid WS connection." });
   });
 });

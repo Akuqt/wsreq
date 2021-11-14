@@ -1,4 +1,4 @@
-import { wsreq, app } from "./helper";
+import { wsrequest, app } from "./helper";
 
 const data = {
   msg: "test",
@@ -6,7 +6,7 @@ const data = {
 
 describe("WS REQUEST", () => {
   test("should respond with msg.", async () => {
-    const res_ = await wsreq(app, "/api/ws");
+    const res_ = await wsrequest(app, "/api/ws");
     res_.emit("ping", data);
     const res = await res_.on<object>("pong").catch((e: Error) => {
       console.log(e.message);
@@ -16,7 +16,7 @@ describe("WS REQUEST", () => {
   });
 
   test("should fail with invalid ws connection.", async () => {
-    const res = await wsreq(app, "/api/no-ws").catch((e: Error) => {
+    const res = await wsrequest(app, "/api/no-ws").catch((e: Error) => {
       return {
         msg: e.message,
       };
