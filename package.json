@@ -1,6 +1,6 @@
 {
   "name": "wsreq",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Websocket request lib for testing.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

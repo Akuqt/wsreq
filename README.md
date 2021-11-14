@@ -1,14 +1,18 @@
+[![Version npm](https://img.shields.io/npm/v/wsreq.svg?logo=npm)](https://www.npmjs.com/package/wsreq)
+[![Coverage Status](https://coveralls.io/repos/github/Aku-mi/wsreq/badge.svg?branch=master)](https://coveralls.io/github/Aku-mi/wsreq?branch=master)
+[![Build Status](https://dev.azure.com/Aku-mi/wsreq/_apis/build/status/Aku-mi.wsreq?branchName=master)](https://dev.azure.com/Aku-mi/wsreq/_build/latest?definitionId=5&branchName=master)
+
 # WsReq
 
-Websocket testing made easy. Even with weird emits. ;)
+Websocket testing made easy, even with weird emits. ;)
 
 # About
 
-The motivation with this module is to provide a high-level abstraction for testing Websockets endpoints.
+The motivation with this module is to provide a high-level abstraction for testing Websocket endpoints.
 
 # Getting Started
 
-Install WsReq as an npm module and save it to your package.json file as a development dependency:
+Install WsReq as an npm module and save it in your package.json file as a development dependency:
 
 ```shell
 npm i -D wsreq
@@ -20,12 +24,12 @@ or
 yarn add -D wsreq
 ```
 
-Once installed it can now be referenced by simply calling require('wsreq');
+Once you installed, it can now be referenced by simply calling `require('wsreq');`
 
 # Example:
 
-You may pass and http.Server to wsreq and the websocket pass.
-It will bound the server to a ephemeral port so you need to keep track of ports.
+You may pass a `http.Server` and the websocket path to wsrequest function.
+It will bound the server to a ephemeral port so you don't need to keep track of ports.
 
 WsReq works with any test framework, here are some examples with jest:
 
@@ -120,7 +124,7 @@ Adds a new event listener to the socket.
 
 ## .onWithHttp(name, options)
 
-Adds a new event listener to the socket and makes a http request to force the emit event in http server. Use only if you want to test emits from APIs.
+Adds a new event listener to the socket and makes a http request to force the emit event in `http server`. Use only if you want to test emits from APIs.
 
 # Notes
 
