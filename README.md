@@ -1,6 +1,4 @@
 [![Version npm](https://img.shields.io/npm/v/wsreq.svg?logo=npm)](https://www.npmjs.com/package/wsreq)
-[![Coverage Status](https://coveralls.io/repos/github/Aku-mi/wsreq/badge.svg?branch=master)](https://coveralls.io/github/Aku-mi/wsreq?branch=master)
-[![Build Status](https://dev.azure.com/Aku-mi/wsreq/_apis/build/status/Aku-mi.wsreq?branchName=master)](https://dev.azure.com/Aku-mi/wsreq/_build/latest?definitionId=5&branchName=master)
 
 # WsReq
 
