@@ -1,6 +1,6 @@
 {
   "name": "wsreq",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Websocket testing made easy, even with weird events.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
