@@ -29,7 +29,7 @@ export class Bridge {
 
   public get connection() {
     return {
-      id: this.socket.io,
+      id: this.socket.id,
       connected: this.socket.connected,
     };
   }
