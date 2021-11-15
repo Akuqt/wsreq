@@ -1,11 +1,12 @@
 {
   "name": "wsreq",
   "version": "1.0.2",
-  "description": "Websocket request lib for testing.",
+  "description": "Websocket testing made easy, even with weird events.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development ts-node-dev --respawn src/example",
+    "dev": "cross-env NODE_ENV=development ts-node-dev --respawn example",
+    "dev:client": "cross-env NODE_ENV=development ts-node-dev --respawn example/client.ts",
     "test": "cross-env NODE_ENV=test jest --runInBand",
     "build": "tsc"
   },
