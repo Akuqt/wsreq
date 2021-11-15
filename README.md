@@ -1,4 +1,4 @@
-[![Version npm](https://img.shields.io/npm/v/wsreq.svg?logo=npm)](https://www.npmjs.com/package/wsreq)
+[![Version npm](https://img.shields.io/npm/v/wsreq.svg?logo=npm)](https://www.npmjs.com/package/wsreq) ![NPM](https://img.shields.io/npm/l/wsreq)
 
 # WsReq
 
