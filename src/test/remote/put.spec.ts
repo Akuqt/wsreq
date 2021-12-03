@@ -1,22 +1,18 @@
 import { httpRequest } from "./helper";
 
 const body = {
-  test: "from delete",
+  test: "from put",
 };
 
-describe("WS REMOTE DELETE REQUEST", () => {
+describe("WS REMOTE PUT REQUEST", () => {
   test("should respond with msg.", async () => {
     const k = await httpRequest<object>(
       "/api/ws",
       "test",
-      "/api/delete",
-      "delete",
+      "/api/put",
+      "put",
       body
-    ).catch((e: Error) => {
-      return {
-        msg: e.message,
-      };
-    });
+    );
 
     expect(k).toEqual({
       msg: body.test,
@@ -27,8 +23,8 @@ describe("WS REMOTE DELETE REQUEST", () => {
     const k = await httpRequest<object>(
       "/api/ws",
       "test",
-      "/api/no-delete",
-      "delete",
+      "/api/no-put",
+      "put",
       body
     ).catch((e: Error) => {
       return {
@@ -43,8 +39,8 @@ describe("WS REMOTE DELETE REQUEST", () => {
     const k = await httpRequest<object>(
       "/api/ws",
       "no-test",
-      "/api/delete",
-      "delete",
+      "/api/put",
+      "put",
       body
     ).catch((e: Error) => {
       return {

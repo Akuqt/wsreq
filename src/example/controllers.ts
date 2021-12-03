@@ -9,23 +9,23 @@ export const index = (_req: Request, res: Response) => {
 
 export const someGet = (_req: Request, res: Response) => {
   Websocket.emit("test", { msg: "from get" });
-  res.end();
+  res.json({ msg: "from get" });
 };
 
 export const somePost = (req: Request, res: Response) => {
   const { test } = req.body;
   Websocket.emit("test", { msg: test });
-  res.end();
+  res.json({ msg: test });
 };
 
 export const somePut = (req: Request, res: Response) => {
   const { test } = req.body;
   Websocket.emit("test", { msg: test });
-  res.end();
+  res.json({ msg: test });
 };
 
 export const someDelete = (req: Request, res: Response) => {
   const { test } = req.body;
   Websocket.emit("test", { msg: test });
-  res.end();
+  res.json({ msg: test });
 };

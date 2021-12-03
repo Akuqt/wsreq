@@ -12,11 +12,7 @@ describe("WS DELETE REQUEST", () => {
       "/api/delete",
       "delete",
       body
-    ).catch((e: Error) => {
-      return {
-        msg: e.message,
-      };
-    });
+    );
 
     expect(k).toEqual({
       msg: body.test,
