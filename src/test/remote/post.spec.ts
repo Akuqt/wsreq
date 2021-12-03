@@ -12,11 +12,7 @@ describe("WS REMOTE POST REQUEST", () => {
       "/api/post",
       "post",
       body
-    ).catch((e: Error) => {
-      return {
-        msg: e.message,
-      };
-    });
+    );
 
     expect(k).toEqual({ msg: body.test });
   });

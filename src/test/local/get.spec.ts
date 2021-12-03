@@ -1,35 +1,18 @@
-import { httpRequest } from "./helper";
+import { httpRequest, app, wsrequest } from "./helper";
 
-const body = {
-  test: "from put",
-};
-
-describe("WS REMOTE PUT REQUEST", () => {
+describe("WS GET REQUEST", () => {
   test("should respond with msg.", async () => {
-    const k = await httpRequest<object>(
-      "/api/ws",
-      "test",
-      "/api/put",
-      "put",
-      body
-    ).catch((e: Error) => {
-      return {
-        msg: e.message,
-      };
-    });
+    const k = await httpRequest<object>("/api/ws", "test", "/api/get", "get");
 
-    expect(k).toEqual({
-      msg: body.test,
-    });
+    expect(k).toEqual({ msg: "from get" });
   });
 
   test("should fail with status code 404.", async () => {
     const k = await httpRequest<object>(
       "/api/ws",
       "test",
-      "/api/no-put",
-      "put",
-      body
+      "/api/no-get",
+      "get"
     ).catch((e: Error) => {
       return {
         msg: e.message,
@@ -43,9 +26,8 @@ describe("WS REMOTE PUT REQUEST", () => {
     const k = await httpRequest<object>(
       "/api/ws",
       "no-test",
-      "/api/put",
-      "put",
-      body
+      "/api/get",
+      "get"
     ).catch((e: Error) => {
       return {
         msg: e.message,

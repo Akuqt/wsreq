@@ -1,6 +1,7 @@
 example/
-test/
 src/
+coverage/
+.github/
 jest.config.js
 tsconfig.json
 yarn.lock

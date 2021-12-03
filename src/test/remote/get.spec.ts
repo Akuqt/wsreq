@@ -1,17 +1,8 @@
-import { httpRequest, app, wsrequest } from "./helper";
+import { httpRequest } from "./helper";
 
-describe("WS GET REQUEST", () => {
+describe("WS REMOTE GET REQUEST", () => {
   test("should respond with msg.", async () => {
-    const k = await httpRequest<object>(
-      "/api/ws",
-      "test",
-      "/api/get",
-      "get"
-    ).catch((e: Error) => {
-      return {
-        msg: e.message,
-      };
-    });
+    const k = await httpRequest<object>("/api/ws", "test", "/api/get", "get");
 
     expect(k).toEqual({ msg: "from get" });
   });

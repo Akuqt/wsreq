@@ -2,8 +2,10 @@
 module.exports = {
   preset: "ts-jest",
   testEnvironment: "node",
-  rootDir: "./test",
+  rootDir: "./src",
   verbose: true,
   silent: true,
   detectOpenHandles: false,
+  collectCoverage: true,
+  coverageDirectory: "../coverage",
 };
