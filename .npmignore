@@ -1,8 +1,7 @@
-example/
 src/
-coverage/
 .github/
+coverage/
 jest.config.js
 tsconfig.json
 yarn.lock
-pipeline.yml
+CODE_OF_CONDUCT.md
