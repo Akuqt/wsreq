@@ -1,4 +1,4 @@
-[![Version npm](https://img.shields.io/npm/v/wsreq.svg?logo=npm)](https://www.npmjs.com/package/wsreq) ![NPM](https://img.shields.io/npm/l/wsreq)
+[![Version npm](https://img.shields.io/npm/v/wsreq.svg?logo=npm)](https://www.npmjs.com/package/wsreq) ![NPM](https://img.shields.io/npm/l/wsreq) ![test workflow](https://github.com/Aku-mi/wsreq/actions/workflows/test.yml/badge.svg) ![stage workflow](https://github.com/Aku-mi/wsreq/actions/workflows/stage.yml/badge.svg)
 
 # WsReq
 
