@@ -1,4 +1,4 @@
-[![Version npm](https://img.shields.io/npm/v/wsreq.svg?logo=npm)](https://www.npmjs.com/package/wsreq) ![NPM](https://img.shields.io/npm/l/wsreq) ![test workflow](https://github.com/Aku-mi/wsreq/actions/workflows/test.yml/badge.svg) ![stage workflow](https://github.com/Aku-mi/wsreq/actions/workflows/stage.yml/badge.svg)
+[![Version npm](https://img.shields.io/npm/v/wsreq.svg?logo=npm)](https://www.npmjs.com/package/wsreq) ![NPM](https://img.shields.io/npm/l/wsreq) [![test workflow](https://github.com/Aku-mi/wsreq/actions/workflows/test.yml/badge.svg)](https://github.com/Akuqt/wsreq/actions/workflows/test.yml) [![build workflow](https://github.com/Aku-mi/wsreq/actions/workflows/build.yml/badge.svg)](https://github.com/Akuqt/wsreq/actions/workflows/build.yml) [![Coverage Status](https://coveralls.io/repos/github/Aku-mi/wsreq/badge.svg)](https://coveralls.io/github/Aku-mi/wsreq)
 
 # WsReq
 
@@ -24,7 +24,7 @@ yarn add -D wsreq
 
 Once you installed, it can now be referenced by simply calling `require('wsreq')` or using import statements.
 
-When you call the wsrequest function, it returns an array with all the websocket connections requested in the options.
+When you call the wsrequest function it returns an array with all the websocket connections requested in the options.
 
 # Example:
 
