@@ -9,6 +9,8 @@ import { Server as HTTPServer } from "http";
  */
 export const wsrequest = (server: string | HTTPServer, opts?: WsReqOptions) => {
   if (typeof server === "string")
+    /* istanbul ignore next */
     return new Init(opts?.config, opts?.timeout, opts?.clients).remote(server);
+  /* istanbul ignore next */
   return new Init(opts?.config, opts?.timeout, opts?.clients).local(server);
 };

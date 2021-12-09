@@ -21,9 +21,9 @@ export class EventStack {
    * @param name Name of the event
    * @param callback Callback for the event
    */
+  /* istanbul ignore next */
   public push(name: string, callback: EventCallback) {
     if (name === "") {
-      /* istanbul ignore next */
       throw new Error("The event needs a name.");
     } else this.evs.push({ callback, ev: name });
   }
@@ -49,6 +49,7 @@ export default class WebSocket {
    *
    * @param eventStack Stack of events to start with.
    */
+  /* istanbul ignore next */
   public init(eventStack?: EventStack) {
     this.io.on("connection", (socket) => {
       WebSocket.socket = socket;
@@ -59,7 +60,6 @@ export default class WebSocket {
             socket.on(ev.ev, ev.callback);
           }
         else {
-          /* istanbul ignore next */
           throw new Error("Event stack need at least one event");
         }
       }
@@ -82,8 +82,8 @@ export default class WebSocket {
    * @param ev Event name.
    * @param callback Callback for the event.
    */
+  /* istanbul ignore next */
   public static on(ev: string, callback: EventCallback) {
-    /* istanbul ignore next */
     if (WebSocket.socket) {
       WebSocket.socket.on(ev, callback);
     }
