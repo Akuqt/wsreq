@@ -1,4 +1,4 @@
-[![Version npm](https://img.shields.io/npm/v/wsreq.svg?logo=npm)](https://www.npmjs.com/package/wsreq) ![NPM](https://img.shields.io/npm/l/wsreq) [![test workflow](https://github.com/Aku-mi/wsreq/actions/workflows/test.yml/badge.svg)](https://github.com/Akuqt/wsreq/actions/workflows/test.yml) [![build workflow](https://github.com/Aku-mi/wsreq/actions/workflows/build.yml/badge.svg)](https://github.com/Akuqt/wsreq/actions/workflows/build.yml) [![Coverage Status](https://coveralls.io/repos/github/Akuqt/wsreq/badge.svg)](https://coveralls.io/github/Akuqt/wsreq)
+[![Version npm](https://img.shields.io/npm/v/wsreq.svg?logo=npm)](https://www.npmjs.com/package/wsreq) ![NPM](https://img.shields.io/npm/l/wsreq) [![test workflow](https://github.com/Aku-mi/wsreq/actions/workflows/test.yml/badge.svg)](https://github.com/Akuqt/wsreq/actions/workflows/test.yml) [![build workflow](https://github.com/Aku-mi/wsreq/actions/workflows/build.yml/badge.svg)](https://github.com/Akuqt/wsreq/actions/workflows/build.yml) [![Coverage Status](https://coveralls.io/repos/github/Akuqt/wsreq/badge.svg?branch=master)](https://coveralls.io/github/Akuqt/wsreq)
 
 # WsReq
 
