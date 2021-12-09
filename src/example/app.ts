@@ -25,8 +25,4 @@ const socket = new Websocket(httpServer, {
 
 socket.init(events);
 
-Websocket.on("message", (data) => {
-  console.log(data);
-});
-
 export default httpServer;

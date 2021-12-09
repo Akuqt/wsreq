@@ -22,8 +22,10 @@ export class EventStack {
    * @param callback Callback for the event
    */
   public push(name: string, callback: EventCallback) {
-    if (name === "") throw new Error("The event needs a name.");
-    else this.evs.push({ callback, ev: name });
+    if (name === "") {
+      /* istanbul ignore next */
+      throw new Error("The event needs a name.");
+    } else this.evs.push({ callback, ev: name });
   }
 
   /**
@@ -56,7 +58,10 @@ export default class WebSocket {
           for (const ev of eventStack.events) {
             socket.on(ev.ev, ev.callback);
           }
-        else throw new Error("Event stack need at least one event");
+        else {
+          /* istanbul ignore next */
+          throw new Error("Event stack need at least one event");
+        }
       }
     });
   }
@@ -78,6 +83,7 @@ export default class WebSocket {
    * @param callback Callback for the event.
    */
   public static on(ev: string, callback: EventCallback) {
+    /* istanbul ignore next */
     if (WebSocket.socket) {
       WebSocket.socket.on(ev, callback);
     }

@@ -1,11 +1,6 @@
+import axios, { AxiosRequestHeaders, AxiosProxyConfig } from "axios";
 import { ManagerOptions, Socket, SocketOptions } from "socket.io-client";
 import { Server } from "http";
-import axios, {
-  AxiosRequestHeaders,
-  AxiosProxyConfig,
-  AxiosError,
-  AxiosResponse,
-} from "axios";
 
 /**
  * HTTP methods.
@@ -81,22 +76,24 @@ export class HTTPRequest {
    */
   private base<U = any>(url: string, method: Methods, opts?: Options<any>) {
     return new Promise<U>(async (resolve, reject) => {
-      const r = await axios(this.baseUrl + url, {
-        method,
-        data: opts?.body,
-        proxy: opts?.proxy,
-        headers: opts?.headers,
-        timeout: opts?.timeout,
-        maxRedirects: opts?.maxRedirects,
-        maxBodyLength: opts?.maxBodyLength,
-        withCredentials: opts?.withCredentials,
-        maxContentLength: opts?.maxContentLength,
-      }).catch((e) => {
-        reject(e);
-        return {} as AxiosResponse<U>;
-      });
+      try {
+        const r = await axios(this.baseUrl + url, {
+          method,
+          data: opts?.body,
+          proxy: opts?.proxy,
+          headers: opts?.headers,
+          timeout: opts?.timeout,
+          maxRedirects: opts?.maxRedirects,
+          maxBodyLength: opts?.maxBodyLength,
+          withCredentials: opts?.withCredentials,
+          maxContentLength: opts?.maxContentLength,
+        });
 
-      resolve(r.data);
+        resolve(r.data);
+      } catch (error) {
+        /* istanbul ignore next */
+        reject(error);
+      }
     });
   }
 
@@ -220,20 +217,22 @@ export class Bridge {
     return new Promise<{ ws: T; http: U }>(async (resolve, reject) => {
       let http_res: any;
       const time = setTimeout(() => {
+        clearTimeout(time);
         reject(new Error("Invalid WS event."));
       }, this.timeout);
 
       const time2 = setTimeout(async () => {
-        const res_ = await axios(this.url + opts.url, {
-          method: opts.method,
-          data: opts.body,
-          headers: opts.headers,
-        }).catch((e: AxiosError) => {
+        try {
+          const res_ = await axios(this.url + opts.url, {
+            method: opts.method,
+            data: opts.body,
+            headers: opts.headers,
+          });
+          http_res = res_.data;
+        } catch (error) {
           clearTimeout(time);
-          reject(e);
-          return {} as AxiosResponse;
-        });
-        http_res = res_.data;
+          reject(error);
+        }
       }, this.timeout / 2);
 
       this.socket.on(ev, (data: T) => {
@@ -264,11 +263,15 @@ export class Bridge {
    */
   public send<T = any>(data: any) {
     return new Promise<T>((resolve, reject) => {
-      const time = setTimeout(() => {
-        const err = new Error("Request timeout.");
-        err.name = "Timeout Error.";
-        reject(err);
-      }, this.timeout);
+      const time = setTimeout(
+        /* istanbul ignore next */ () => {
+          const err = new Error("Request timeout.");
+          err.name = "Timeout Error.";
+          clearTimeout(time);
+          reject(err);
+        },
+        this.timeout
+      );
       this.socket.on("message", (d) => {
         clearTimeout(time);
         resolve(d as T);
@@ -282,8 +285,8 @@ export class Bridge {
    * @param callback Gives access to the socket and http request modules.
    * @returns Data from callback or void if no return statement is present.
    */
-  public async multiple<T = any>(callback: Callback<T>) {
-    return await callback(new Controller(this, new HTTPRequest(this.url)));
+  public multiple<T = any>(callback: Callback<T>) {
+    return callback(new Controller(this, new HTTPRequest(this.url)));
   }
 
   /**

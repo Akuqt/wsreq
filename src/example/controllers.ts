@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import Websocket from "./websocket";
 
+/* istanbul ignore next */
 export const index = (_req: Request, res: Response) => {
   res.json({
     msg: "Hello",
